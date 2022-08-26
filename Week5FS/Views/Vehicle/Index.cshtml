@@ -1,0 +1,77 @@
+﻿@model IEnumerable<Week5FS.Models.Vehicle>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Vehicles for Sale</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table table-dark table-borderless table-hover">
+    <thead style="LINE-HEIGHT:50px">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Model)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Manufacturer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.YearOfManufacture)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rego)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Color)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.isAutomatic)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumberOfDoors)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td style="LINE-HEIGHT:50px">
+                @Html.DisplayFor(modelItem => item.Model)
+            </td>
+            <td >
+                @Html.DisplayFor(modelItem => item.Manufacturer)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.YearOfManufacture)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rego)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Color)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.isAutomatic)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumberOfDoors)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.VehicleId" class="text-light">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.VehicleId" class="text-light">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.VehicleId" class="text-danger">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
